@@ -1,0 +1,14 @@
+{
+  "name": "saudi-chad",
+  "version": "1.0.0",
+  "description": "A discord bot created in javascript by AdiHaAgadi",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AdiHaAgadi",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.9.0"
+  }
+}
