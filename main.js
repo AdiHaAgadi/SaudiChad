@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 
-const secrets = require('./src/secrets/secret_data');
+const secrets = require('./src/properties/secret_data');
+
+const BotProps = require('./src/properties/bot_properties');
 
 const client = new Discord.Client({ 
     intents: [
@@ -13,8 +15,6 @@ const client = new Discord.Client({
         Discord.Partials.Channel,
     ],
 });
-
-const prefix = '-';
 
 const fs = require('fs');
 
@@ -33,9 +33,9 @@ client.once('ready', () => {
 })
 
 client.on('messageCreate', (message) => {
-    if (message.content.startsWith(prefix) && !message.author.bot) {
+    if (message.content.startsWith(BotProps.prefix) && !message.author.bot) {
 
-        const args = message.content.slice(prefix.length).split(/ +/);
+        const args = message.content.slice(BotProps.prefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
 
         try {

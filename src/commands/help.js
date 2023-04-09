@@ -1,15 +1,32 @@
-// const { commands } = require('../../main');
+const fs = require('fs');
+const EmbedDefaults = require('../properties/embed_defaults');
+const BotProps = require('../properties/bot_properties');
+
 
 module.exports = {
     name: 'help',
     description: 'displays bot command manual',
     execute(message, args) {
-        const helpMsg = '** --- Command Manual --- **\n';
+        let commandFieldList = [];
 
-        // commands.array.forEach((command) => {
-        //     helpMsg += command.name + " " + command.description + "\n";
-        // });
+        const commandFiles = fs.readdirSync('./src/commands/').filter((file) => file.endsWith('.js'));
 
-        message.channel.send(helpMsg);
+        commandFiles.forEach((file) => {
+            const command = require(`./${file}`);
+                
+            commandFieldList.push({
+                name: BotProps.prefix + command.name,
+                value: command.description,
+                inline: false,
+            });
+        });
+
+        const helpEmbed = {
+            color: EmbedDefaults.color,
+            title: '** --- Command Manual --- **',
+            fields: commandFieldList,
+        };
+
+        message.channel.send({ embeds: [helpEmbed] });
     }
 };
