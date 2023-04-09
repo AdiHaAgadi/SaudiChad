@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const secrets = require('../src/secrets/secret_data');
+const secrets = require('./src/secrets/secret_data');
 
 const client = new Discord.Client({ 
     intents: [
@@ -20,10 +20,10 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('../src/commands/').filter((file) => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./src/commands/').filter((file) => file.endsWith('.js'));
 
 commandFiles.forEach((file) => {
-    const command = require(`../src/commands/${file}`);
+    const command = require(`./src/commands/${file}`);
     
     client.commands.set(command.name, command);
 });
