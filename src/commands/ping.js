@@ -1,6 +1,6 @@
 module.exports = {
     name: 'ping',
-    description: 'This is a ping command',
+    description: "Replies with 'pong'",
     execute(message, args) {
         message.reply('pong!');
     }
