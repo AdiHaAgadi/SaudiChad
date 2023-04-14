@@ -5,7 +5,7 @@ const BotProps = require('../properties/bot_properties');
 
 module.exports = {
     name: 'help',
-    description: 'displays bot command manual',
+    description: 'Displays bot command manual',
     execute(message, args) {
         let commandFieldList = [];
 
