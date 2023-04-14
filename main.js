@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const secrets = require('./src/properties/secret_data');
+const Secrets = require('./src/properties/secret_data');
 
 const BotProps = require('./src/properties/bot_properties');
 
@@ -47,4 +47,4 @@ client.on('messageCreate', (message) => {
     }
 })
 
-client.login(secrets.Token);
+client.login(Secrets.Token);
