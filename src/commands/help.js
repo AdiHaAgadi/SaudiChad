@@ -15,7 +15,8 @@ module.exports = {
             const command = require(`./${file}`);
                 
             commandFieldList.push({
-                name: '**' + BotProps.prefix + command.name + '**' + ' ' + command.description,
+                name: '**' + BotProps.prefix + command.name + '**:   ' + command.description,
+                value: '',
                 inline: false,
             });
         });
