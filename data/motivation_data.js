@@ -1,0 +1,8 @@
+module.exports = {
+    quotes: [
+        
+    ],
+    images: [
+
+    ],
+}
