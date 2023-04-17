@@ -1,7 +1,7 @@
 const fs = require('fs');
 const EmbedDefaults = require('../properties/embed_defaults');
 const BotProps = require('../properties/bot_properties');
-
+const { bold } = require('../properties/text_style');
 
 module.exports = {
     name: 'help',
@@ -15,7 +15,7 @@ module.exports = {
             const command = require(`./${file}`);
                 
             commandFieldList.push({
-                name: '**' + BotProps.prefix + command.name + '**:   ' + command.description,
+                name: bold(BotProps.prefix + command.name)  + ':' + command.description,
                 value: '',
                 inline: false,
             });
@@ -23,7 +23,7 @@ module.exports = {
 
         const helpEmbed = {
             color: EmbedDefaults.color,
-            title: '** --- Command Manual --- **',
+            title: bold(' --- Command Manual --- '),
             fields: commandFieldList,
         };
 
